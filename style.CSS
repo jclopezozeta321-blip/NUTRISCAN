@@ -1,0 +1,399 @@
+/* ===============================
+   NUTRISCAN v3.0
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#f5f7fb;
+
+    color:#2d3436;
+
+}
+
+/*================ HEADER ================*/
+
+header{
+
+    background:linear-gradient(135deg,#2ecc71,#27ae60);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 45px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.20);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.logo span{
+
+    font-size:15px;
+
+    opacity:.8;
+
+}
+
+/*================ MENU ================*/
+
+nav{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+nav button{
+
+    border:none;
+
+    background:white;
+
+    color:#27ae60;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:all .3s ease;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+
+}
+nav button:hover{
+
+    transform:translateY(-2px);
+
+    background:#27ae60;
+
+    color:white;
+
+    box-shadow:0 8px 20px rgba(39,174,96,.35);
+
+}
+
+/*================ CONTENIDO ================*/
+
+main{
+
+    width:95%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+.pagina{
+
+    display:none;
+
+}
+
+.pagina.activa{
+
+    display:block;
+
+}
+/*================ TITULOS ================*/
+
+h1{
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+    color:#2c3e50;
+
+}
+
+h2{
+
+    font-size:38px;
+
+    color:#2c3e50;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+p{
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+
+/*================ DASHBOARD ================*/
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+    transition:all .3s ease;
+
+    border:1px solid #f0f0f0;
+
+}
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+
+}
+.card h3{
+
+    color:#7f8c8d;
+
+    margin-bottom:15px;
+
+}
+
+.cards h1{
+
+    font-size:60px;
+
+    color:#2ecc71;
+
+    font-weight:700;
+
+    margin-top:15px;
+
+}
+
+/*================ BUSCADOR ================*/
+
+#buscar{
+
+    margin-top:30px;
+
+}
+
+#txtBuscar{
+
+    width:75%;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:2px solid #2ecc71;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+#btnBuscarProducto{
+
+    padding:15px 25px;
+
+    border:none;
+
+    background:#2ecc71;
+
+    color:white;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin-left:10px;
+
+}
+
+#btnBuscarProducto:hover{
+
+    background:#27ae60;
+
+}
+/* ================= GRAFICOS ================= */
+
+.graficos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.grafico{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.grafico canvas{
+    width:100% !important;
+    height:300px !important;
+}
+/* ================= FAVORITOS ================= */
+
+#btnFavorito{
+
+    background:#e74c3c;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin-top:20px;
+
+    transition:.3s;
+
+}
+
+#btnFavorito:hover{
+
+    background:#c0392b;
+
+}
+/* ================= COMPARADOR ================= */
+
+.tablaComparacion{
+
+    width:100%;
+
+    margin-top:25px;
+
+    border-collapse:collapse;
+
+}
+
+.tablaComparacion th,
+.tablaComparacion td{
+
+    border:1px solid #ddd;
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+.tablaComparacion th{
+
+    background:#2ecc71;
+
+    color:white;
+
+}
+/* ================= GANADOR ================= */
+
+.ganador{
+
+    margin-top:25px;
+
+    padding:18px;
+
+    background:#d4edda;
+
+    color:#155724;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+/* ================= PDF ================= */
+
+#btnPDF{
+
+    margin-left:10px;
+
+    padding:12px 20px;
+
+    background:#e74c3c;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+#btnPDF:hover{
+
+    background:#c0392b;
+
+}

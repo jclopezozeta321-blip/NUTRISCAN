@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NutriScan v3.0</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+🍏 NutriScan <span>v3.0</span>
+
+</div>
+
+<nav>
+
+<button id="btnInicio">Inicio</button>
+
+<button id="btnBuscar">Buscar</button>
+
+<button id="btnDashboard">Dashboard</button>
+
+<button id="btnComparar">Comparar</button>
+
+<button id="btnFavoritos">Favoritos</button>
+
+</nav>
+
+</header>
+
+<main>
+
+<!-- ======================== -->
+
+<section id="inicio" class="pagina activa">
+
+<h1>
+
+Bienvenido a NutriScan
+
+</h1>
+
+<p>
+
+Sistema Inteligente de Evaluación Nutricional
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Productos</h3>
+
+<h1 id="totalProductos">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Promedio Nutricional</h3>
+
+<h1 id="promedio">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Productos Saludables</h3>
+
+<h1 id="saludables">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Alto Riesgo</h3>
+
+<h1 id="riesgo">0</h1>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section id="buscar" class="pagina">
+
+<h2>
+
+Buscar Producto
+
+</h2>
+
+<input
+
+type="text"
+
+id="txtBuscar"
+
+placeholder="Nombre, marca o código de barras">
+
+<button id="btnBuscarProducto">
+
+Buscar
+
+</button>
+
+<div id="resultadoBusqueda">
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section id="producto" class="pagina">
+
+<div class="producto">
+
+<img
+
+id="imgProducto"
+
+src=""
+
+alt="Producto"
+
+>
+
+<div>
+
+<h2 id="nombreProducto">
+
+Producto
+
+</h2>
+
+<h3 id="marcaProducto">
+
+Marca
+
+</h3>
+
+<p id="categoriaProducto">
+
+Categoría
+
+</p>
+
+<table>
+
+<tr>
+
+<td>Calorías</td>
+
+<td id="calorias"></td>
+
+</tr>
+
+<tr>
+
+<td>Azúcar</td>
+
+<td id="azucar"></td>
+
+</tr>
+
+<table>
+
+<tr>
+<td>🔥 Calorías</td>
+<td id="calorias"></td>
+</tr>
+
+<tr>
+<td>🍬 Azúcar</td>
+<td id="azucar"></td>
+</tr>
+
+<tr>
+<td>🧈 Grasas Saturadas</td>
+<td id="grasas"></td>
+</tr>
+
+<tr>
+<td>🧂 Sodio</td>
+<td id="sodio"></td>
+</tr>
+
+<tr>
+<td>💪 Proteínas</td>
+<td id="proteinas"></td>
+</tr>
+
+<tr>
+<td>🌾 Fibra</td>
+<td id="fibra"></td>
+</tr>
+
+<tr>
+<td>🟢 Nivel saludable</td>
+<td id="nivelSaludable"></td>
+</tr>
+
+<tr>
+<td>⭐ Puntuación</td>
+<td id="puntuacion"></td>
+</tr>
+
+<tr>
+<td>🚦 Semáforo</td>
+<td id="semaforo"></td>
+</tr>
+
+<tr>
+<td>🍽️ Porción recomendada</td>
+<td id="porcion"></td>
+</tr>
+
+<tr>
+<td>📅 Frecuencia recomendada</td>
+<td id="frecuencia"></td>
+</tr>
+
+<tr>
+<td>💚 Beneficios</td>
+<td id="beneficios"></td>
+</tr>
+
+<tr>
+<td>⚠️ Aspectos a considerar</td>
+<td id="aspectos"></td>
+</tr>
+
+<tr>
+<td>🥗 Alternativa saludable</td>
+<td id="alternativa"></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<div class="score">
+
+<div id="nutriScore">
+
+A
+
+</div>
+
+<h2 id="indice">
+
+Excelente
+
+</h2>
+
+<p id="recomendacion">
+
+Recomendación
+
+</p>
+  <button id="btnFavorito">❤️ Agregar a Favoritos</button>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section id="dashboard" class="pagina">
+
+    <h2>Dashboard</h2>
+
+    <div class="graficos">
+
+        <div class="grafico">
+            <h3>Productos por Categoría</h3>
+            <canvas id="graficoCategorias"></canvas>
+        </div>
+
+        <div class="grafico">
+            <h3>Semáforo Nutricional</h3>
+            <canvas id="graficoSemaforo"></canvas>
+        </div>
+
+    </div>
+
+</section>
+<!-- ======================== -->
+
+<section id="comparar" class="pagina">
+
+    <h2>Comparador de Productos</h2>
+
+    <select id="producto1"></select>
+
+    <select id="producto2"></select>
+
+    <button id="btnCompararProductos">
+        Comparar
+    </button>
+  <button id="btnPDF">
+    📄 Exportar a PDF
+</button>
+
+    <div id="resultadoComparacion"></div>
+
+</section>
+
+<!-- ======================== -->
+
+<section id="favoritos" class="pagina">
+
+<h2>
+
+Favoritos
+
+</h2>
+
+<div id="listaFavoritos">
+
+</div>
+
+</section>
+
+</main>
+
+<script src="productos.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
